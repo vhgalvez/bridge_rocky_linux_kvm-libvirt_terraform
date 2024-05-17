@@ -1,8 +1,8 @@
-## Creación Manual de un Adaptador Puente (Bridge)
+# Creación Manual de un Adaptador Puente (Bridge)
 
 Puedes crear manualmente un adaptador puente (bridge) usando `nmcli` o directamente editando los archivos de configuración en `/etc/NetworkManager/system-connections/`. Aquí te dejo ambos métodos.
 
-### Método 1: Usando nmcli
+## Método 1: Usando nmcli
 
 1. **Crear el puente `br0`:**
 
@@ -36,7 +36,7 @@ ip addr show br0
 sudo brctl show
 ```
 
-###  Método 2: Editando Archivos de Configuración
+## Método 2: Editando Archivos de Configuración
 
 Crear el archivo de configuración para el puente br0:
 
@@ -81,7 +81,7 @@ slave-type=bridge
 [bridge-port]
 ```
 
-###  Reiniciar NetworkManager para aplicar las configuraciones:
+### Reiniciar NetworkManager para aplicar las configuraciones:
 
 ```bash
 sudo systemctl restart NetworkManager
@@ -94,4 +94,5 @@ nmcli device status
 ip addr show br0
 sudo brctl show
 ```
+
 Estos métodos deberían permitirte crear y configurar manualmente el adaptador puente (br0). Si ya has creado configuraciones previas, asegúrate de eliminarlas o modificarlas para evitar conflictos.
