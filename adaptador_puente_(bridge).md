@@ -109,3 +109,12 @@ nmcli device reapply enp4s0f1
 sudo ip route del default via 192.168.0.1 dev enp3s0f1
 sudo ip route del default via 192.168.0.1 dev enp3s0f0
 sudo ip route del default via 192.168.0.1 dev enp4s0f1
+
+
+
+
+
+
+
+sudo systemctl restart NetworkManager
+sudo nmcli connection up bridge-slave-enp3s0f0
