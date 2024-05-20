@@ -95,26 +95,14 @@ ip addr show br0
 sudo brctl show
 ```
 
+# levantar la interfaz puente
+sudo nmcli connection up bridge-slave-enp3s0f0
+
+# reiniciar NetworkManager
+sudo systemctl restart NetworkManager
+
+
+
+
 Estos métodos deberían permitirte crear y configurar manualmente el adaptador puente (br0). Si ya has creado configuraciones previas, asegúrate de eliminarlas o modificarlas para evitar conflictos.
 
-ip route show
-
-
-nmcli device reapply enp4s0f0
-nmcli device reapply enp3s0f1
-nmcli device reapply enp3s0f0
-nmcli device reapply enp4s0f1
-
-
-sudo ip route del default via 192.168.0.1 dev enp3s0f1
-sudo ip route del default via 192.168.0.1 dev enp3s0f0
-sudo ip route del default via 192.168.0.1 dev enp4s0f1
-
-
-
-
-
-
-
-sudo systemctl restart NetworkManager
-sudo nmcli connection up bridge-slave-enp3s0f0
